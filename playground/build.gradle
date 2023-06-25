@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(":onixlabs-kotlin-core")
+    implementation project(":onixlabs-kotlin-graph")
+    implementation project(":onixlabs-kotlin-graph-projection")
+    implementation project(":onixlabs-kotlin-graph-validation")
+    implementation project(":onixlabs-kotlin-scheduler")
+}

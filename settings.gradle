@@ -1,0 +1,8 @@
+rootProject.name = projectName
+
+include ":onixlabs-kotlin-core"
+include ":onixlabs-kotlin-graph"
+include ":onixlabs-kotlin-graph-projection"
+include ":onixlabs-kotlin-graph-validation"
+include ":onixlabs-kotlin-scheduler"
+include ":playground"
