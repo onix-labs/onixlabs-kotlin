@@ -1,0 +1,416 @@
+public final class io/onixlabs/kotlin/core/Extensions_AnyKt {
+	public static final fun isEqualTo (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public static final fun isEqualToAny (Ljava/lang/Object;Ljava/lang/Iterable;)Z
+	public static final fun isEqualToAny (Ljava/lang/Object;[Ljava/lang/Object;)Z
+	public static final fun isNull (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_BooleanKt {
+	public static final fun getFALSE_STRING (Lkotlin/jvm/internal/BooleanCompanionObject;)Ljava/lang/String;
+	public static final fun getTRUE_STRING (Lkotlin/jvm/internal/BooleanCompanionObject;)Ljava/lang/String;
+	public static final fun isFalse (Z)Z
+	public static final fun isTrue (Z)Z
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_ByteKt {
+	public static final fun getONE (Lkotlin/jvm/internal/ByteCompanionObject;)B
+	public static final fun getZERO (Lkotlin/jvm/internal/ByteCompanionObject;)B
+	public static final fun toBigDecimal (B)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (B)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_ComparableKt {
+	public static final fun isGreaterThan (Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
+	public static final fun isGreaterThanOrEqualTo (Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
+	public static final fun isLessThan (Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
+	public static final fun isLessThanOrEqualTo (Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
+	public static final fun isWithinRange (Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
+	public static final fun isWithinRange (Ljava/lang/Comparable;Lkotlin/ranges/ClosedRange;)Z
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_DoubleKt {
+	public static final fun getONE (Lkotlin/jvm/internal/DoubleCompanionObject;)D
+	public static final fun getZERO (Lkotlin/jvm/internal/DoubleCompanionObject;)D
+	public static final fun isInteger (D)Z
+	public static final fun toBigDecimal (D)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (D)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_FloatKt {
+	public static final fun getONE (Lkotlin/jvm/internal/FloatCompanionObject;)F
+	public static final fun getZERO (Lkotlin/jvm/internal/FloatCompanionObject;)F
+	public static final fun isInteger (F)Z
+	public static final fun toBigDecimal (F)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (F)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_IntKt {
+	public static final fun getONE (Lkotlin/jvm/internal/IntCompanionObject;)I
+	public static final fun getZERO (Lkotlin/jvm/internal/IntCompanionObject;)I
+	public static final fun toBigDecimal (I)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (I)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_LongKt {
+	public static final fun getONE (Lkotlin/jvm/internal/LongCompanionObject;)J
+	public static final fun getZERO (Lkotlin/jvm/internal/LongCompanionObject;)J
+	public static final fun toBigDecimal (J)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (J)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_ShortKt {
+	public static final fun getONE (Lkotlin/jvm/internal/ShortCompanionObject;)S
+	public static final fun getZERO (Lkotlin/jvm/internal/ShortCompanionObject;)S
+	public static final fun toBigDecimal (S)Ljava/math/BigDecimal;
+	public static final fun toBigInteger (S)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_StringKt {
+	public static final fun containsAll (Ljava/lang/String;Ljava/lang/Iterable;)Z
+	public static final fun containsAll (Ljava/lang/String;[Ljava/lang/String;)Z
+	public static final fun containsAny (Ljava/lang/String;Ljava/lang/Iterable;)Z
+	public static final fun containsAny (Ljava/lang/String;[Ljava/lang/String;)Z
+	public static final fun getEMPTY (Lkotlin/jvm/internal/StringCompanionObject;)Ljava/lang/String;
+	public static final fun isRegexMatch (Ljava/lang/String;Ljava/lang/String;)Z
+	public static final fun isRegexMatch (Ljava/lang/String;Lkotlin/text/Regex;)Z
+	public static final fun isValidMod10Checksum (Ljava/lang/String;)Z
+	public static final fun isValidUUID (Ljava/lang/String;)Z
+	public static final fun toLowerKebabCase (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toLowerSnakeCase (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toUpperKebabCase (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toUpperSnakeCase (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun wrap (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/core/Extensions_TerminalKt {
+	public static final fun setBackgroundColor (Lio/onixlabs/kotlin/core/TerminalColor;)V
+	public static final fun setForegroundColor (Lio/onixlabs/kotlin/core/TerminalColor;)V
+}
+
+public final class io/onixlabs/kotlin/core/TerminalColor : java/lang/Enum {
+	public static final field BLACK Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_BLUE Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_CYAN Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_GRAY Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_GREEN Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_MAGENTA Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_RED Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field DARK_YELLOW Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_BLUE Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_CYAN Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_GRAY Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_GREEN Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_MAGENTA Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_RED Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field LIGHT_YELLOW Lio/onixlabs/kotlin/core/TerminalColor;
+	public static final field WHITE Lio/onixlabs/kotlin/core/TerminalColor;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/onixlabs/kotlin/core/TerminalColor;
+	public static fun values ()[Lio/onixlabs/kotlin/core/TerminalColor;
+}
+
+public final class io/onixlabs/kotlin/core/collections/Extensions_IterableKt {
+	public static final fun allEqualBy (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
+	public static final fun anyEqualBy (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
+	public static final fun containsAll (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun containsAll (Ljava/lang/Iterable;[Ljava/lang/Object;)Z
+	public static final fun containsAny (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun containsAny (Ljava/lang/Iterable;[Ljava/lang/Object;)Z
+	public static final fun countNot (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
+	public static final fun hasCount (Ljava/lang/Iterable;ILkotlin/jvm/functions/Function1;)Z
+	public static synthetic fun hasCount$default (Ljava/lang/Iterable;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
+	public static final fun isCountEven (Ljava/lang/Iterable;)Z
+	public static final fun isCountOdd (Ljava/lang/Iterable;)Z
+	public static final fun isDistinct (Ljava/lang/Iterable;)Z
+	public static final fun isEmpty (Ljava/lang/Iterable;)Z
+	public static final fun isNotEmpty (Ljava/lang/Iterable;)Z
+	public static final fun isSingle (Ljava/lang/Iterable;)Z
+	public static final fun orderedContentEquals (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun unorderedContentEquals (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+}
+
+public final class io/onixlabs/kotlin/core/math/Extensions_BigDecimalKt {
+	public static final fun isInteger (Ljava/math/BigDecimal;)Z
+}
+
+public final class io/onixlabs/kotlin/core/reflection/Extensions_ClassKt {
+	public static final fun getArgumentType (Ljava/lang/Class;I)Ljava/lang/reflect/Type;
+	public static final fun getArgumentTypes (Ljava/lang/Class;)Ljava/util/List;
+}
+
+public final class io/onixlabs/kotlin/core/reflection/Extensions_KClassKt {
+	public static final fun createInstance (Lkotlin/reflect/KClass;)Ljava/lang/Object;
+	public static final fun createInstance (Lkotlin/reflect/KClass;Ljava/util/Map;)Ljava/lang/Object;
+	public static final fun createInstance (Lkotlin/reflect/KClass;[Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun getKotlinClass (Ljava/lang/Object;)Lkotlin/reflect/KClass;
+}
+
+public final class io/onixlabs/kotlin/core/reflection/Extensions_TypeKt {
+	public static final fun toClass (Ljava/lang/reflect/Type;)Ljava/lang/Class;
+	public static final fun toTypedClass (Ljava/lang/reflect/Type;)Ljava/lang/Class;
+}
+
+public final class io/onixlabs/kotlin/core/specifications/EmptySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Z)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class io/onixlabs/kotlin/core/specifications/Specification {
+	public static final field Companion Lio/onixlabs/kotlin/core/specifications/Specification$Companion;
+	public fun <init> ()V
+	public final fun and (Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/logical/LogicalAndSpecification;
+	public abstract fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public final fun not ()Lio/onixlabs/kotlin/core/specifications/logical/LogicalNotSpecification;
+	public final fun or (Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/logical/LogicalOrSpecification;
+}
+
+public final class io/onixlabs/kotlin/core/specifications/Specification$Companion {
+	public final fun and (Ljava/lang/Iterable;)Lio/onixlabs/kotlin/core/specifications/Specification;
+	public final fun and ([Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/Specification;
+	public final fun empty (Z)Lio/onixlabs/kotlin/core/specifications/EmptySpecification;
+	public final fun or (Ljava/lang/Iterable;)Lio/onixlabs/kotlin/core/specifications/Specification;
+	public final fun or ([Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/Specification;
+}
+
+public final class io/onixlabs/kotlin/core/specifications/bool/BooleanFalseSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Boolean;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/bool/BooleanTrueSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Boolean;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/comparable/ComparableGreaterThanOrEqualSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Comparable;)V
+	public fun isSatisfiedBy (Ljava/lang/Comparable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/comparable/ComparableGreaterThanSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Comparable;)V
+	public fun isSatisfiedBy (Ljava/lang/Comparable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/comparable/ComparableLessThanOrEqualSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Comparable;)V
+	public fun isSatisfiedBy (Ljava/lang/Comparable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/comparable/ComparableLessThanSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Comparable;)V
+	public fun isSatisfiedBy (Ljava/lang/Comparable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/comparable/ComparableRangeSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Comparable;Ljava/lang/Comparable;)V
+	public fun <init> (Lkotlin/ranges/ClosedRange;)V
+	public fun isSatisfiedBy (Ljava/lang/Comparable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/generic/GenericEqualAnySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun <init> ([Ljava/lang/Object;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/generic/GenericEqualSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/generic/GenericNullSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/generic/GenericPredicateSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableContainsAllSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun <init> ([Ljava/lang/Object;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableContainsAnySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun <init> ([Ljava/lang/Object;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableContainsExactlySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableContainsOrderedExactlySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableContainsSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableDistinctSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableEmptySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableExactCountSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (I)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableRangeCountSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (II)V
+	public fun <init> (Lkotlin/ranges/IntRange;)V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/iterable/IterableSingleSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public fun isSatisfiedBy (Ljava/lang/Iterable;)Z
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/logical/LogicalAndSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/logical/LogicalNotSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/logical/LogicalOrSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringBlankSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringContainsAllSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun <init> ([Ljava/lang/String;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringContainsAnySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/Iterable;)V
+	public fun <init> ([Ljava/lang/String;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringContainsSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringEmptySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringEndsWithSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringExactLengthSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (I)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringMatchRegexSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Lkotlin/text/Regex;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringMaximumLengthSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (I)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringMinimumLengthSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (I)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringMod10ChecksumSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringNullOrBlankSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringNullOrEmptySpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringRangeLengthSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (II)V
+	public fun <init> (Lkotlin/ranges/IntRange;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringStartsWithSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/specifications/string/StringValidUUIDSpecification : io/onixlabs/kotlin/core/specifications/Specification {
+	public fun <init> ()V
+	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+

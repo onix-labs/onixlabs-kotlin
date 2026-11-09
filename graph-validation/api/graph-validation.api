@@ -1,0 +1,154 @@
+public final class io/onixlabs/kotlin/graph/validation/Extensions_GraphConfigurationBuilderKt {
+	public static final fun validator (Lio/onixlabs/kotlin/graph/GraphConfigurationBuilder;Lio/onixlabs/kotlin/graph/validation/Validator;)Lio/onixlabs/kotlin/graph/validation/Validator;
+	public static final fun validator (Lio/onixlabs/kotlin/graph/GraphConfigurationBuilder;Lkotlin/jvm/functions/Function1;)Lio/onixlabs/kotlin/graph/validation/Validator;
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder {
+	public final fun addAssertion (Lio/onixlabs/kotlin/core/specifications/Specification;Ljava/lang/String;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder_BooleanKt {
+	public static final fun mustBeFalse (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeFalse$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeTrue (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeTrue$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder_ComparableKt {
+	public static final fun mustBeGreaterThan (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;)V
+	public static synthetic fun mustBeGreaterThan$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeGreaterThanOrEqualTo (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;)V
+	public static synthetic fun mustBeGreaterThanOrEqualTo$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeLessThan (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;)V
+	public static synthetic fun mustBeLessThan$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeLessThanOrEqualTo (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;)V
+	public static synthetic fun mustBeLessThanOrEqualTo$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/String;)V
+	public static final fun mustBeWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/ClosedRange;Ljava/lang/String;)V
+	public static synthetic fun mustBeWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static synthetic fun mustBeWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/ClosedRange;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder_GenericKt {
+	public static final fun mustBeEqualTo (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;)V
+	public static synthetic fun mustBeEqualTo$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeEqualToAny (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustBeEqualToAny$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeNull (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeNull$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeEqualTo (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeEqualTo$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeEqualToAny (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeEqualToAny$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeNull (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeNull$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotSatisfy (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/jvm/functions/Function1;Ljava/lang/String;)V
+	public static synthetic fun mustNotSatisfy$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/jvm/functions/Function1;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustSatisfy (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/jvm/functions/Function1;Ljava/lang/String;)V
+	public static synthetic fun mustSatisfy$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/jvm/functions/Function1;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder_IterableKt {
+	public static final fun mustBeDistinct (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeDistinct$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeSingle (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeSingle$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContain (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;)V
+	public static synthetic fun mustContain$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainAll (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainAll$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainAny (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainAny$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainExactly (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainExactly$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainOrderedExactly (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainOrderedExactly$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveCount (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;)V
+	public static synthetic fun mustHaveCount$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveCountWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;IILjava/lang/String;)V
+	public static final fun mustHaveCountWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/IntRange;Ljava/lang/String;)V
+	public static synthetic fun mustHaveCountWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;IILjava/lang/String;ILjava/lang/Object;)V
+	public static synthetic fun mustHaveCountWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/IntRange;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotContain (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;)V
+	public static synthetic fun mustNotContain$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotContainAny (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustNotContainAny$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder_StringKt {
+	public static final fun mustBeBlank (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeBlank$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeNullOrBlank (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeNullOrBlank$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeNullOrEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeNullOrEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeValidMod10Checksum (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeValidMod10Checksum$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustBeValidUUID (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustBeValidUUID$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContain (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustContain$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainAll (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainAll$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustContainAny (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;)V
+	public static synthetic fun mustContainAny$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/Iterable;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustEndWith (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustEndWith$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveLength (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;)V
+	public static synthetic fun mustHaveLength$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveLengthWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;IILjava/lang/String;)V
+	public static final fun mustHaveLengthWithinRange (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/IntRange;Ljava/lang/String;)V
+	public static synthetic fun mustHaveLengthWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;IILjava/lang/String;ILjava/lang/Object;)V
+	public static synthetic fun mustHaveLengthWithinRange$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Lkotlin/ranges/IntRange;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveMaximumLength (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;)V
+	public static synthetic fun mustHaveMaximumLength$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustHaveMinimumLength (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;)V
+	public static synthetic fun mustHaveMinimumLength$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustMatchRegularExpression (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustMatchRegularExpression$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeBlank (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeBlank$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeNullOrBlank (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeNullOrBlank$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotBeNullOrEmpty (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;)V
+	public static synthetic fun mustNotBeNullOrEmpty$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotContain (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustNotContain$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotEndWith (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustNotEndWith$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustNotStartWith (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustNotStartWith$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun mustStartWith (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun mustStartWith$default (Lio/onixlabs/kotlin/graph/validation/PropertyValidationBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/ValidationBuilder {
+	public final fun all (Lkotlin/jvm/functions/Function1;)V
+	public final fun allExcept (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
+	public final fun allExcept ([Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
+	public final fun iterable (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
+	public final fun iterable ([Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
+	public final fun scalar (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
+	public final fun scalar ([Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/onixlabs/kotlin/graph/validation/ValidationResult {
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class io/onixlabs/kotlin/graph/validation/Validator {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public fun getSubjectType ()Lkotlin/reflect/KClass;
+	public final fun validate ()Lio/onixlabs/kotlin/graph/validation/ValidationResult;
+	public final fun validate (Ljava/lang/Object;Z)Lio/onixlabs/kotlin/graph/validation/ValidationResult;
+	public static synthetic fun validate$default (Lio/onixlabs/kotlin/graph/validation/Validator;Ljava/lang/Object;ZILjava/lang/Object;)Lio/onixlabs/kotlin/graph/validation/ValidationResult;
+}
+

@@ -1,0 +1,16 @@
+public abstract class io/onixlabs/kotlin/graph/Graph {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/onixlabs/kotlin/graph/GraphBuilder {
+	public fun <init> ()V
+	public final fun configure (Ljava/lang/Class;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/onixlabs/kotlin/graph/GraphConfigurationBuilder {
+	public fun <init> ()V
+}
+
+public abstract interface annotation class io/onixlabs/kotlin/graph/GraphDslMarker : java/lang/annotation/Annotation {
+}
+
