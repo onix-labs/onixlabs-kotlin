@@ -18,5 +18,7 @@ package io.onixlabs.kotlin.core.specifications.logical
 import io.onixlabs.kotlin.core.specifications.Specification
 
 public class LogicalOrSpecification<T>(private val left: Specification<T>, private val right: Specification<T>) : Specification<T>() {
+    override val description: String get() = "${left.description} or ${right.description}"
+
     override fun isSatisfiedBy(value: T): Boolean = left.isSatisfiedBy(value) || right.isSatisfiedBy(value)
 }

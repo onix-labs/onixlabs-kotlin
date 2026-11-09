@@ -1,8 +1,3 @@
-public final class io/onixlabs/kotlin/graph/validation/Extensions_GraphConfigurationBuilderKt {
-	public static final fun validator (Lio/onixlabs/kotlin/graph/GraphConfigurationBuilder;Lio/onixlabs/kotlin/graph/validation/Validator;)Lio/onixlabs/kotlin/graph/validation/Validator;
-	public static final fun validator (Lio/onixlabs/kotlin/graph/GraphConfigurationBuilder;Lkotlin/jvm/functions/Function1;)Lio/onixlabs/kotlin/graph/validation/Validator;
-}
-
 public final class io/onixlabs/kotlin/graph/validation/PropertyValidationBuilder {
 	public final fun addAssertion (Lio/onixlabs/kotlin/core/specifications/Specification;Ljava/lang/String;)V
 }

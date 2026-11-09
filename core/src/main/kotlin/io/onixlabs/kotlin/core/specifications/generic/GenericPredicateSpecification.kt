@@ -17,6 +17,12 @@ package io.onixlabs.kotlin.core.specifications.generic
 
 import io.onixlabs.kotlin.core.specifications.Specification
 
-public class GenericPredicateSpecification<T>(private val predicate: (T) -> Boolean) : Specification<T?>() {
+public class GenericPredicateSpecification<T>(
+    private val predicate: (T) -> Boolean,
+    private val customDescription: String? = null,
+) : Specification<T?>() {
+
+    override val description: String get() = customDescription ?: super.description
+
     override fun isSatisfiedBy(value: T?): Boolean = value?.let(predicate) ?: false
 }

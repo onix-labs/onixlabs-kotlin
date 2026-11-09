@@ -18,5 +18,9 @@ package io.onixlabs.kotlin.core.specifications.logical
 import io.onixlabs.kotlin.core.specifications.Specification
 
 public class LogicalAndSpecification<T>(private val left: Specification<T>, private val right: Specification<T>) : Specification<T>() {
+    override val description: String get() = "${left.grouped()} and ${right.grouped()}"
+
+    private fun Specification<T>.grouped(): String = if (this is LogicalOrSpecification) "($description)" else description
+
     override fun isSatisfiedBy(value: T): Boolean = left.isSatisfiedBy(value) && right.isSatisfiedBy(value)
 }

@@ -164,6 +164,7 @@ public abstract class io/onixlabs/kotlin/core/specifications/Specification {
 	public static final field Companion Lio/onixlabs/kotlin/core/specifications/Specification$Companion;
 	public fun <init> ()V
 	public final fun and (Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/logical/LogicalAndSpecification;
+	public fun getDescription ()Ljava/lang/String;
 	public abstract fun isSatisfiedBy (Ljava/lang/Object;)Z
 	public final fun not ()Lio/onixlabs/kotlin/core/specifications/logical/LogicalNotSpecification;
 	public final fun or (Lio/onixlabs/kotlin/core/specifications/Specification;)Lio/onixlabs/kotlin/core/specifications/logical/LogicalOrSpecification;
@@ -237,7 +238,9 @@ public final class io/onixlabs/kotlin/core/specifications/generic/GenericNullSpe
 }
 
 public final class io/onixlabs/kotlin/core/specifications/generic/GenericPredicateSpecification : io/onixlabs/kotlin/core/specifications/Specification {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public fun <init> (Lkotlin/jvm/functions/Function1;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescription ()Ljava/lang/String;
 	public fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
@@ -306,16 +309,19 @@ public final class io/onixlabs/kotlin/core/specifications/iterable/IterableSingl
 
 public final class io/onixlabs/kotlin/core/specifications/logical/LogicalAndSpecification : io/onixlabs/kotlin/core/specifications/Specification {
 	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun getDescription ()Ljava/lang/String;
 	public fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public final class io/onixlabs/kotlin/core/specifications/logical/LogicalNotSpecification : io/onixlabs/kotlin/core/specifications/Specification {
 	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun getDescription ()Ljava/lang/String;
 	public fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public final class io/onixlabs/kotlin/core/specifications/logical/LogicalOrSpecification : io/onixlabs/kotlin/core/specifications/Specification {
 	public fun <init> (Lio/onixlabs/kotlin/core/specifications/Specification;Lio/onixlabs/kotlin/core/specifications/Specification;)V
+	public fun getDescription ()Ljava/lang/String;
 	public fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 

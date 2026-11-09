@@ -18,5 +18,11 @@ package io.onixlabs.kotlin.core.specifications.logical
 import io.onixlabs.kotlin.core.specifications.Specification
 
 public class LogicalNotSpecification<T>(private val specification: Specification<T>) : Specification<T>() {
+    override val description: String
+        get() = when (specification) {
+            is LogicalAndSpecification, is LogicalOrSpecification -> "not (${specification.description})"
+            else -> "not ${specification.description}"
+        }
+
     override fun isSatisfiedBy(value: T): Boolean = !specification.isSatisfiedBy(value)
 }

@@ -19,6 +19,7 @@ import io.onixlabs.kotlin.core.collections.isNotEmpty
 import io.onixlabs.kotlin.core.specifications.logical.LogicalAndSpecification
 import io.onixlabs.kotlin.core.specifications.logical.LogicalNotSpecification
 import io.onixlabs.kotlin.core.specifications.logical.LogicalOrSpecification
+import io.onixlabs.kotlin.core.toLowerSnakeCase
 
 /**
  * Represents the base class for implementing the specification pattern.
@@ -85,6 +86,17 @@ public abstract class Specification<T> {
     }
 
     /**
+     * Gets a human-readable description of the current [Specification], used when describing rules without a subject.
+     * By default, this is derived from the class name; for example, `CustomerAgeSpecification` is described as "customer age".
+     */
+    public open val description: String
+        get() = javaClass.simpleName
+            .removeSuffix("Specification")
+            .ifEmpty { "condition" }
+            .toLowerSnakeCase()
+            .replace('_', ' ')
+
+    /**
      * Determines whether specified value satisfies the current [Specification].
      *
      * @param value The value to test using the the current [Specification].
@@ -98,7 +110,7 @@ public abstract class Specification<T> {
      * @param other The other [Specification] to join with the current [Specification].
      * @return Returns the current [Specification] joined with the specified other [Specification] using logical AND.
      */
-    public fun and(other: Specification<T>): LogicalAndSpecification<T> = LogicalAndSpecification(this, other)
+    public infix fun and(other: Specification<T>): LogicalAndSpecification<T> = LogicalAndSpecification(this, other)
 
     /**
      * Joins the current [Specification] with the specified other [Specification] using logical OR.
@@ -106,7 +118,7 @@ public abstract class Specification<T> {
      * @param other The other [Specification] to join with the current [Specification].
      * @return Returns the current [Specification] joined with the specified other [Specification] using logical OR.
      */
-    public fun or(other: Specification<T>): LogicalOrSpecification<T> = LogicalOrSpecification(this, other)
+    public infix fun or(other: Specification<T>): LogicalOrSpecification<T> = LogicalOrSpecification(this, other)
 
     /**
      * Negates the current [Specification] using logical NOT.

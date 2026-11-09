@@ -1,16 +1,276 @@
-public abstract class io/onixlabs/kotlin/graph/Graph {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+public abstract interface class io/onixlabs/kotlin/graph/Graph {
+	public abstract fun definitionsOf (Lio/onixlabs/kotlin/graph/GraphPlugin;)Ljava/util/List;
+	public abstract fun getPlugins ()Ljava/util/Set;
+	public abstract fun getType ()Lkotlin/reflect/KClass;
 }
 
 public final class io/onixlabs/kotlin/graph/GraphBuilder {
-	public fun <init> ()V
-	public final fun configure (Ljava/lang/Class;Lkotlin/jvm/functions/Function1;)V
+	public final fun define (Lio/onixlabs/kotlin/graph/GraphPlugin;Ljava/lang/Object;)V
+	public final fun getType ()Lkotlin/reflect/KClass;
 }
 
-public final class io/onixlabs/kotlin/graph/GraphConfigurationBuilder {
-	public fun <init> ()V
+public final class io/onixlabs/kotlin/graph/GraphBuilderKt {
+	public static final fun graph (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Lio/onixlabs/kotlin/graph/Graph;
+	public static synthetic fun graph$default (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/Graph;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphConfigurationException : java/lang/IllegalStateException {
+	public fun <init> (Ljava/util/List;)V
+	public final fun getProblems ()Ljava/util/List;
 }
 
 public abstract interface annotation class io/onixlabs/kotlin/graph/GraphDslMarker : java/lang/annotation/Annotation {
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphMember {
+	public abstract fun getProperty ()Lkotlin/reflect/KProperty1;
+	public abstract fun pathFrom (Lio/onixlabs/kotlin/graph/GraphPath;)Lio/onixlabs/kotlin/graph/GraphPath;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMember$Elements : io/onixlabs/kotlin/graph/GraphMember {
+	public fun <init> (Lkotlin/reflect/KProperty1;)V
+	public final fun component1 ()Lkotlin/reflect/KProperty1;
+	public final fun copy (Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphMember$Elements;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMember$Elements;Lkotlin/reflect/KProperty1;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMember$Elements;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getProperty ()Lkotlin/reflect/KProperty1;
+	public fun hashCode ()I
+	public fun pathFrom (Lio/onixlabs/kotlin/graph/GraphPath;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMember$Keys : io/onixlabs/kotlin/graph/GraphMember {
+	public fun <init> (Lkotlin/reflect/KProperty1;)V
+	public final fun component1 ()Lkotlin/reflect/KProperty1;
+	public final fun copy (Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphMember$Keys;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMember$Keys;Lkotlin/reflect/KProperty1;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMember$Keys;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getProperty ()Lkotlin/reflect/KProperty1;
+	public fun hashCode ()I
+	public fun pathFrom (Lio/onixlabs/kotlin/graph/GraphPath;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMember$Property : io/onixlabs/kotlin/graph/GraphMember {
+	public fun <init> (Lkotlin/reflect/KProperty1;)V
+	public final fun component1 ()Lkotlin/reflect/KProperty1;
+	public final fun copy (Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphMember$Property;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMember$Property;Lkotlin/reflect/KProperty1;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMember$Property;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getProperty ()Lkotlin/reflect/KProperty1;
+	public fun hashCode ()I
+	public fun pathFrom (Lio/onixlabs/kotlin/graph/GraphPath;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMember$Values : io/onixlabs/kotlin/graph/GraphMember {
+	public fun <init> (Lkotlin/reflect/KProperty1;)V
+	public final fun component1 ()Lkotlin/reflect/KProperty1;
+	public final fun copy (Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphMember$Values;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMember$Values;Lkotlin/reflect/KProperty1;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMember$Values;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getProperty ()Lkotlin/reflect/KProperty1;
+	public fun hashCode ()I
+	public fun pathFrom (Lio/onixlabs/kotlin/graph/GraphPath;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphMemberAccess {
+	public static final field Companion Lio/onixlabs/kotlin/graph/GraphMemberAccess$Companion;
+	public abstract fun canRead (Ljava/lang/Object;Lkotlin/reflect/KProperty1;)Z
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMemberAccess$Companion {
+	public final fun getUnrestricted ()Lio/onixlabs/kotlin/graph/GraphMemberAccess;
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphMemberRead {
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMemberRead$Unavailable : io/onixlabs/kotlin/graph/GraphMemberRead {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/GraphMemberRead$Unavailable;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMemberRead$Value : io/onixlabs/kotlin/graph/GraphMemberRead {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMemberRead$Value;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMemberRead$Value;Ljava/lang/Object;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMemberRead$Value;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphMemberValue {
+	public fun <init> (Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/Object;)V
+	public final fun component1 ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun component2 ()Ljava/lang/Object;
+	public final fun copy (Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMemberValue;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphMemberValue;Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/Object;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphMemberValue;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPath ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPath : java/lang/Comparable {
+	public static final field Companion Lio/onixlabs/kotlin/graph/GraphPath$Companion;
+	public final fun anyEntry ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun anyEntryKey ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun anyIndex ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun compareTo (Lio/onixlabs/kotlin/graph/GraphPath;)I
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public final fun entry (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun entryKey (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun format (Lio/onixlabs/kotlin/graph/GraphPathFormatter;)Ljava/lang/String;
+	public final fun getParent ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun getRoot ()Lkotlin/reflect/KClass;
+	public final fun getSegments ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun index (I)Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun isConcrete ()Z
+	public final fun matches (Lio/onixlabs/kotlin/graph/GraphPath;)Z
+	public final fun property (Ljava/lang/String;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun property (Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun startsWith (Lio/onixlabs/kotlin/graph/GraphPath;)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPath$Companion {
+	public final fun of ([Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun root (Lkotlin/reflect/KClass;)Lio/onixlabs/kotlin/graph/GraphPath;
+}
+
+public abstract class io/onixlabs/kotlin/graph/GraphPathFormat : io/onixlabs/kotlin/graph/GraphPathFormatter {
+	public static final field Companion Lio/onixlabs/kotlin/graph/GraphPathFormat$Companion;
+	public abstract fun withNames (Lkotlin/jvm/functions/Function1;)Lio/onixlabs/kotlin/graph/GraphPathFormat;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathFormat$Companion {
+	public final fun getJsonPath ()Lio/onixlabs/kotlin/graph/GraphPathFormat;
+	public final fun getJsonPointer ()Lio/onixlabs/kotlin/graph/GraphPathFormat;
+	public final fun getKotlin ()Lio/onixlabs/kotlin/graph/GraphPathFormat;
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphPathFormatter {
+	public abstract fun format (Lio/onixlabs/kotlin/graph/GraphPath;)Ljava/lang/String;
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphPathSegment {
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$AnyEntry : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/GraphPathSegment$AnyEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$AnyEntryKey : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/GraphPathSegment$AnyEntryKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$AnyIndex : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/GraphPathSegment$AnyIndex;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$Entry : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Entry;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$Entry;Ljava/lang/Object;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Entry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$EntryKey : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$EntryKey;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$EntryKey;Ljava/lang/Object;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$EntryKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$Index : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lio/onixlabs/kotlin/graph/GraphPathSegment$Index;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$Index;IILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Index;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIndex ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$Property : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Property;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$Property;Ljava/lang/String;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Property;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$Root : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public final fun component1 ()Lkotlin/reflect/KClass;
+	public final fun copy (Lkotlin/reflect/KClass;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Root;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$Root;Lkotlin/reflect/KClass;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Root;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getType ()Lkotlin/reflect/KClass;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class io/onixlabs/kotlin/graph/GraphPlugin {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getName ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphRegistry {
+	public final fun getGraphs ()Ljava/util/List;
+	public final fun getMemberAccess ()Lio/onixlabs/kotlin/graph/GraphMemberAccess;
+	public final fun graphFor (Lkotlin/reflect/KClass;)Lio/onixlabs/kotlin/graph/Graph;
+	public final fun graphsFor (Lkotlin/reflect/KClass;)Ljava/util/List;
+	public final fun hasGraphFor (Lkotlin/reflect/KClass;)Z
+	public final fun membersOf (Lkotlin/reflect/KClass;)Ljava/util/List;
+	public final fun mostSpecificGraphFor (Lkotlin/reflect/KClass;)Lio/onixlabs/kotlin/graph/Graph;
+	public final fun read (Ljava/lang/Object;Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/GraphMemberRead;
+	public final fun valuesOf (Ljava/lang/Object;Lio/onixlabs/kotlin/graph/GraphMember;Lio/onixlabs/kotlin/graph/GraphPath;)Ljava/util/List;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphRegistryBuilder {
+	public final fun excludeMembersDeclaredBy ([Lkotlin/reflect/KClass;)V
+	public final fun include (Ljava/lang/Iterable;)V
+	public final fun include ([Lio/onixlabs/kotlin/graph/Graph;)V
+	public final fun memberAccess (Lio/onixlabs/kotlin/graph/GraphMemberAccess;)V
+}
+
+public final class io/onixlabs/kotlin/graph/GraphRegistryKt {
+	public static final fun graphs (Lkotlin/jvm/functions/Function1;)Lio/onixlabs/kotlin/graph/GraphRegistry;
+}
+
+public abstract interface class io/onixlabs/kotlin/graph/GraphVerifiable {
+	public abstract fun verify (Lio/onixlabs/kotlin/graph/Graph;Lio/onixlabs/kotlin/graph/GraphRegistry;)Ljava/util/List;
 }
 
