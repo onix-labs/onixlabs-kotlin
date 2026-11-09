@@ -93,6 +93,31 @@ public object ProjectionTargets : GraphRegistryExtension<ProjectionTargetFactory
 public object ProjectionTypeConverters : GraphRegistryExtension<ProjectionTypeConverter>("projection type converters")
 
 /**
+ * Specifies a registry-level projection setting.
+ */
+public enum class ProjectionSetting {
+
+    /**
+     * Projection uses only the type converters registered with `typeConverter<T>(...)`, and not the core type
+     * converters that it uses by default.
+     */
+    NO_DEFAULT_TYPE_CONVERTERS,
+}
+
+/**
+ * Represents the registry extension through which projection settings are registered.
+ */
+public object ProjectionSettings : GraphRegistryExtension<ProjectionSetting>("projection settings")
+
+/**
+ * Stops projection from using the core type converters by default, so that it uses only the type converters
+ * registered with `typeConverter<T>(...)`.
+ */
+public fun GraphRegistryBuilder.withoutDefaultTypeConverters() {
+    extend(ProjectionSettings, ProjectionSetting.NO_DEFAULT_TYPE_CONVERTERS)
+}
+
+/**
  * Registers a factory that creates instances of the specified type, and of its subtypes, for projection; for example,
  * `projectionTarget(Entity::class) { type -> Entity.create(type) }`. Every mapped value is then set through the
  * instance's public mutable properties.

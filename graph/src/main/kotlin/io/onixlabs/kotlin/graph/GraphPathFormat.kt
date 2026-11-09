@@ -20,6 +20,7 @@ import io.onixlabs.kotlin.graph.GraphPathSegment.AnyEntryKey
 import io.onixlabs.kotlin.graph.GraphPathSegment.AnyIndex
 import io.onixlabs.kotlin.graph.GraphPathSegment.Entry
 import io.onixlabs.kotlin.graph.GraphPathSegment.EntryKey
+import io.onixlabs.kotlin.graph.GraphPathSegment.Function
 import io.onixlabs.kotlin.graph.GraphPathSegment.Index
 import io.onixlabs.kotlin.graph.GraphPathSegment.Property
 import io.onixlabs.kotlin.graph.GraphPathSegment.Root
@@ -57,14 +58,14 @@ public abstract class GraphPathFormat internal constructor(internal val names: (
 
         /**
          * Gets the JSON Pointer format (RFC 6901), which is relative to the document root; for example, `/orders/2/total`.
-         * JSON Pointer cannot address map keys, so a key is formatted like its entry. Wildcards are formatted as `*`,
+         * JSON Pointer cannot address map keys or function results, so a key is formatted like its entry and a function like a property. Wildcards are formatted as `*`,
          * which is not part of RFC 6901.
          */
         public val JsonPointer: GraphPathFormat = JsonPointerGraphPathFormat { it }
 
         /**
          * Gets the JSONPath format (RFC 9535), which is relative to the document root; for example, `$.orders[2].total`.
-         * JSONPath cannot address map keys, so a key is formatted like its entry. Wildcards are formatted as `[*]`.
+         * JSONPath cannot address map keys or function results, so a key is formatted like its entry and a function like a property. Wildcards are formatted as `[*]`.
          */
         public val JsonPath: GraphPathFormat = JsonPathGraphPathFormat { it }
     }
@@ -91,6 +92,7 @@ private class KotlinGraphPathFormat(names: (String) -> String) : GraphPathFormat
             when (segment) {
                 is Root -> append(segment.type.simpleName ?: segment.type.toString())
                 is Property -> append('.').append(names(segment.name))
+                is Function -> append('.').append(names(segment.name)).append("()")
                 is Index -> append('[').append(segment.index).append(']')
                 AnyIndex, AnyEntry -> append("[*]")
                 is Entry -> append('[').append(literal(segment.key)).append(']')
@@ -119,6 +121,7 @@ private class JsonPointerGraphPathFormat(names: (String) -> String) : GraphPathF
             when (segment) {
                 is Root -> Unit
                 is Property -> append('/').append(escape(names(segment.name)))
+                is Function -> append('/').append(escape(names(segment.name)))
                 is Index -> append('/').append(segment.index)
                 is Entry -> append('/').append(escape(segment.key.toString()))
                 is EntryKey -> append('/').append(escape(segment.key.toString()))
@@ -146,6 +149,7 @@ private class JsonPathGraphPathFormat(names: (String) -> String) : GraphPathForm
             when (segment) {
                 is Root -> append('$')
                 is Property -> names(segment.name).let { if (SHORTHAND_NAME.matches(it)) append('.').append(it) else append(quoted(it)) }
+                is Function -> names(segment.name).let { if (SHORTHAND_NAME.matches(it)) append('.').append(it) else append(quoted(it)) }
                 is Index -> append('[').append(segment.index).append(']')
                 is Entry -> append(quoted(segment.key.toString()))
                 is EntryKey -> append(quoted(segment.key.toString()))

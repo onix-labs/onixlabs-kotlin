@@ -56,7 +56,7 @@ public fun <T, P> Iterable<T>.anyEqualBy(selector: (T) -> P): Boolean {
  * @return Returns true if all the specified elements exist in the current [Iterable]; otherwise, false.
  */
 public fun <T> Iterable<T>.containsAll(elements: Iterable<T>): Boolean {
-    return all { it in elements }
+    return elements.all { it in this }
 }
 
 /**

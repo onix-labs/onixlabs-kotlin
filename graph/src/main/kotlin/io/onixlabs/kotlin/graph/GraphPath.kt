@@ -20,6 +20,7 @@ import io.onixlabs.kotlin.graph.GraphPathSegment.AnyEntryKey
 import io.onixlabs.kotlin.graph.GraphPathSegment.AnyIndex
 import io.onixlabs.kotlin.graph.GraphPathSegment.Entry
 import io.onixlabs.kotlin.graph.GraphPathSegment.EntryKey
+import io.onixlabs.kotlin.graph.GraphPathSegment.Function
 import io.onixlabs.kotlin.graph.GraphPathSegment.Index
 import io.onixlabs.kotlin.graph.GraphPathSegment.Property
 import io.onixlabs.kotlin.graph.GraphPathSegment.Root
@@ -44,6 +45,13 @@ public sealed interface GraphPathSegment {
      * @property name The name of the property.
      */
     public data class Property(public val name: String) : GraphPathSegment
+
+    /**
+     * Represents the result of calling a member function that takes no arguments.
+     *
+     * @property name The name of the function.
+     */
+    public data class Function(public val name: String) : GraphPathSegment
 
     /**
      * Represents an element of a collection or array, by index.
@@ -137,6 +145,7 @@ public class GraphPath private constructor(public val segments: List<GraphPathSe
             get() = when (this) {
                 is Root -> 0
                 is Property -> 1
+                is Function -> 1
                 AnyIndex -> 2
                 is Index -> 3
                 AnyEntry -> 4
@@ -150,7 +159,8 @@ public class GraphPath private constructor(public val segments: List<GraphPathSe
             if (order != 0) return order
             return when (left) {
                 is Root -> compareValues(left.type.qualifiedName, (right as Root).type.qualifiedName)
-                is Property -> left.name.compareTo((right as Property).name)
+                is Property -> left.name.compareTo((right as? Property)?.name ?: (right as Function).name)
+                is Function -> left.name.compareTo((right as? Function)?.name ?: (right as Property).name)
                 is Index -> left.index.compareTo((right as Index).index)
                 is Entry -> compareKeys(left.key, (right as Entry).key)
                 is EntryKey -> compareKeys(left.key, (right as EntryKey).key)
@@ -203,6 +213,15 @@ public class GraphPath private constructor(public val segments: List<GraphPathSe
      * @return Returns a path to the specified property of the member addressed by the current path.
      */
     public fun property(property: KProperty1<*, *>): GraphPath = property(property.name)
+
+    /**
+     * Creates a path to the result of calling the specified member function, which takes no arguments, on the member
+     * addressed by the current path; for example, `Customer.fullName()`.
+     *
+     * @param name The name of the function.
+     * @return Returns a path to the result of calling the specified member function.
+     */
+    public fun function(name: String): GraphPath = append(Function(name))
 
     /**
      * Creates a path to the element at the specified index of the collection addressed by the current path.

@@ -67,3 +67,45 @@ public fun MemberValidationBuilder<out Map<*, *>?>.mustHaveCountWithinRange(
 ) {
     rule("map.countWithinRange", message, mapOf("minimum" to minimum, "maximum" to maximum)) { (it as Map<*, *>).size in minimum..maximum }
 }
+
+/**
+ * Requires the map to contain the specified value. Rule `map.containsValue` with parameter `value`.
+ *
+ * @param value The value that the map must contain.
+ * @param message The message reported when the rule fails.
+ */
+public fun <V> MemberValidationBuilder<out Map<*, V>?>.mustContainValue(value: V, message: String = "must contain the value $value.") {
+    rule("map.containsValue", message, mapOf("value" to value)) { (it as Map<*, *>).containsValue(value) }
+}
+
+/**
+ * Requires the map not to contain the specified value. Rule `map.notContainsValue` with parameter `value`.
+ *
+ * @param value The value that the map must not contain.
+ * @param message The message reported when the rule fails.
+ */
+public fun <V> MemberValidationBuilder<out Map<*, V>?>.mustNotContainValue(value: V, message: String = "must not contain the value $value.") {
+    rule("map.notContainsValue", message, mapOf("value" to value)) { !(it as Map<*, *>).containsValue(value) }
+}
+
+/**
+ * Requires the map to contain the specified entry. Rule `map.containsEntry` with parameters `key` and `value`.
+ *
+ * @param key The key of the entry.
+ * @param value The value of the entry.
+ * @param message The message reported when the rule fails.
+ */
+public fun <K, V> MemberValidationBuilder<out Map<K, V>?>.mustContainEntry(key: K, value: V, message: String = "must contain the entry $key=$value.") {
+    rule("map.containsEntry", message, mapOf("key" to key, "value" to value)) { (it as Map<*, *>).let { map -> map.containsKey(key) && map[key] == value } }
+}
+
+/**
+ * Requires the map not to contain the specified entry. Rule `map.notContainsEntry` with parameters `key` and `value`.
+ *
+ * @param key The key of the entry.
+ * @param value The value of the entry.
+ * @param message The message reported when the rule fails.
+ */
+public fun <K, V> MemberValidationBuilder<out Map<K, V>?>.mustNotContainEntry(key: K, value: V, message: String = "must not contain the entry $key=$value.") {
+    rule("map.notContainsEntry", message, mapOf("key" to key, "value" to value)) { (it as Map<*, *>).let { map -> !(map.containsKey(key) && map[key] == value) } }
+}

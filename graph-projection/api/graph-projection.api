@@ -1,11 +1,15 @@
 public final class io/onixlabs/kotlin/graph/projection/ProjectionBuilder {
+	public final fun from (Lkotlin/reflect/KProperty1;Ljava/lang/Object;)V
 	public final fun from (Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
 	public final fun from (Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/projection/ProjectionParameter;
 	public final fun ignore (Lkotlin/reflect/KProperty1;)V
 	public final fun ignore ([Lkotlin/reflect/KProperty1;)V
+	public final fun parameter (Ljava/lang/String;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public final fun parameter (Ljava/lang/String;Ljava/lang/Object;)V
 	public final fun parameter (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public final fun parameter (Ljava/lang/String;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
 	public final fun parameter (Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public final fun parameter (Lkotlin/reflect/KProperty1;Ljava/lang/Object;)V
 	public final fun parameter (Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
 	public final fun parameter (Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
 	public static synthetic fun parameter$default (Lio/onixlabs/kotlin/graph/projection/ProjectionBuilder;Ljava/lang/String;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;ILjava/lang/Object;)V
@@ -44,6 +48,8 @@ public final class io/onixlabs/kotlin/graph/projection/ProjectionFailure {
 
 public final class io/onixlabs/kotlin/graph/projection/ProjectionKt {
 	public static final fun project (Lio/onixlabs/kotlin/graph/GraphRegistry;Ljava/lang/Object;Lkotlin/reflect/KClass;)Ljava/lang/Object;
+	public static final fun project (Ljava/lang/Object;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static synthetic fun project$default (Ljava/lang/Object;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
 public final class io/onixlabs/kotlin/graph/projection/ProjectionParameter {
@@ -59,6 +65,18 @@ public final class io/onixlabs/kotlin/graph/projection/ProjectionPluginKt {
 	public static synthetic fun project$default (Lio/onixlabs/kotlin/graph/GraphBuilder;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static final fun projectionTarget (Lio/onixlabs/kotlin/graph/GraphRegistryBuilder;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
 	public static final fun typeConverter (Lio/onixlabs/kotlin/graph/GraphRegistryBuilder;Lkotlin/reflect/KClass;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public static final fun withoutDefaultTypeConverters (Lio/onixlabs/kotlin/graph/GraphRegistryBuilder;)V
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionSetting : java/lang/Enum {
+	public static final field NO_DEFAULT_TYPE_CONVERTERS Lio/onixlabs/kotlin/graph/projection/ProjectionSetting;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/onixlabs/kotlin/graph/projection/ProjectionSetting;
+	public static fun values ()[Lio/onixlabs/kotlin/graph/projection/ProjectionSetting;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionSettings : io/onixlabs/kotlin/graph/GraphRegistryExtension {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/projection/ProjectionSettings;
 }
 
 public final class io/onixlabs/kotlin/graph/projection/ProjectionTargetFactory {

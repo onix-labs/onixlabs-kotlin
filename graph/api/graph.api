@@ -129,6 +129,7 @@ public final class io/onixlabs/kotlin/graph/GraphPath : java/lang/Comparable {
 	public final fun entryKey (Ljava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPath;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun format (Lio/onixlabs/kotlin/graph/GraphPathFormatter;)Ljava/lang/String;
+	public final fun function (Ljava/lang/String;)Lio/onixlabs/kotlin/graph/GraphPath;
 	public final fun getParent ()Lio/onixlabs/kotlin/graph/GraphPath;
 	public final fun getRoot ()Lkotlin/reflect/KClass;
 	public final fun getSegments ()Ljava/util/List;
@@ -204,6 +205,17 @@ public final class io/onixlabs/kotlin/graph/GraphPathSegment$EntryKey : io/onixl
 	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$EntryKey;Ljava/lang/Object;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$EntryKey;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getKey ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/GraphPathSegment$Function : io/onixlabs/kotlin/graph/GraphPathSegment {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Function;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/GraphPathSegment$Function;Ljava/lang/String;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/GraphPathSegment$Function;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

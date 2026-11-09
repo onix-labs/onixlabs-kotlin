@@ -31,6 +31,8 @@ import io.onixlabs.kotlin.core.typeconverters.UUIDTypeConverter
 import io.onixlabs.kotlin.graph.GraphMemberRead
 import io.onixlabs.kotlin.graph.GraphPath
 import io.onixlabs.kotlin.graph.GraphRegistry
+import io.onixlabs.kotlin.graph.graph
+import io.onixlabs.kotlin.graph.graphs
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.util.Collections
@@ -70,6 +72,39 @@ public fun <R : Any> GraphRegistry.project(source: Any, type: KClass<R>): R {
     if (run.failures.isNotEmpty()) throw ProjectionException(run.failures)
     @Suppress("UNCHECKED_CAST")
     return result as R
+}
+
+/**
+ * Projects the specified source to an instance of the specified target type, using the specified mappings, without
+ * declaring a graph or a registry. Nested values are projected by the projection rules, without registered projections.
+ *
+ * @param S The source type.
+ * @param R The target type.
+ * @param source The source to project.
+ * @param target The target type.
+ * @param block The block that declares the projection's mappings.
+ * @return Returns an instance of the target type, projected from the specified source.
+ * @throws ProjectionException if any target parameter or property could not be projected.
+ */
+public fun <S : Any, R : Any> project(source: S, target: KClass<R>, block: ProjectionBuilder<S, R>.() -> Unit = {}): R {
+    @Suppress("UNCHECKED_CAST")
+    val type = source::class as KClass<S>
+    return graphs { include(graph(type) { project(target, block) }) }.project(source, target)
+}
+
+/**
+ * Projects the specified source to an instance of the specified target type, using the specified mappings, without
+ * declaring a graph or a registry; for example, `project<_, CustomerDto>(customer) { ... }`.
+ *
+ * @param S The source type.
+ * @param R The target type.
+ * @param source The source to project.
+ * @param block The block that declares the projection's mappings.
+ * @return Returns an instance of the target type, projected from the specified source.
+ * @throws ProjectionException if any target parameter or property could not be projected.
+ */
+public inline fun <S : Any, reified R : Any> project(source: S, noinline block: ProjectionBuilder<S, R>.() -> Unit = {}): R {
+    return project(source, R::class, block)
 }
 
 /**
@@ -115,7 +150,9 @@ private class ProjectionRun(private val registry: GraphRegistry) {
     val failures: MutableList<ProjectionFailure> = mutableListOf()
 
     private val sources: MutableSet<Any> = Collections.newSetFromMap(IdentityHashMap())
-    private val converters: Map<Class<*>, TypeConverter<*>> = DEFAULT_CONVERTERS +
+    private val defaults: Map<Class<*>, TypeConverter<*>> =
+        if (ProjectionSetting.NO_DEFAULT_TYPE_CONVERTERS in registry.extensionsOf(ProjectionSettings)) emptyMap() else DEFAULT_CONVERTERS
+    private val converters: Map<Class<*>, TypeConverter<*>> = defaults +
         registry.extensionsOf(ProjectionTypeConverters).associate { it.type.javaObjectType to it.converter }
     private val factories: List<ProjectionTargetFactory> = registry.extensionsOf(ProjectionTargets)
 
@@ -203,7 +240,7 @@ private class ProjectionRun(private val registry: GraphRegistry) {
     ): Any? = when (mapping) {
         ParameterMapping.Ignored -> Omitted
         is ParameterMapping.Computed -> try {
-            mapping.compute(source)
+            checkType(mapping.compute(source), type, path)
         } catch (exception: Exception) {
             fail(path, sourcePath, "the mapping failed: ${exception.message}", exception)
         }
@@ -216,6 +253,12 @@ private class ProjectionRun(private val registry: GraphRegistry) {
             }
         }
         null -> properties[name]?.let { readAndConvert(source, it, type, null, path, sourcePath?.property(it)) } ?: Omitted
+    }
+
+    private fun checkType(value: Any?, type: KType, path: GraphPath): Any? {
+        val target = type.classifier as? KClass<*> ?: return value
+        if (value == null || target.javaObjectType.isInstance(value)) return value
+        return fail(path, null, "the mapping returned ${describe(value)}, which is not $type.")
     }
 
     private fun readAndConvert(source: Any, property: KProperty1<*, *>, type: KType, converter: TypeConverter<*>?, path: GraphPath, sourcePath: GraphPath?): Any? {

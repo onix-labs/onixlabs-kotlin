@@ -214,6 +214,24 @@ class TaskSchedulerTests {
     }
 
     @Test
+    fun `reschedule should replace a task's schedule and recalculate its next occurrence`() {
+
+        // Arrange
+        val clock = TestClock(start)
+        val scheduler = TaskScheduler(inline, RecordingListener(), clock) { task("tick", everyMinute) { } }
+        scheduler.activate()
+
+        // Act
+        val rescheduled = scheduler.reschedule("tick", schedule { every(5.minutes) })
+        val missing = scheduler.reschedule("missing", everyMinute)
+
+        // Assert
+        assertTrue(rescheduled)
+        assertFalse(missing)
+        assertEquals(Instant.parse("2026-01-01T00:05:00Z"), scheduler.tasks.single().nextRun)
+    }
+
+    @Test
     fun `a listener that throws should not affect scheduling`() {
 
         // Arrange

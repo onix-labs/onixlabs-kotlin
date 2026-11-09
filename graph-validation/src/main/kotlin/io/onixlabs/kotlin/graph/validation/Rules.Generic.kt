@@ -103,3 +103,23 @@ public fun <V : Any> MemberValidationBuilder<out V?>.mustSatisfy(predicate: (V) 
 public fun <V : Any> MemberValidationBuilder<out V?>.mustNotSatisfy(predicate: (V) -> Boolean, message: String = "must not satisfy the specified predicate.") {
     rule("generic.notSatisfies", message) { !predicate(it as V) }
 }
+
+/**
+ * Requires the value to be the same instance as the specified value (`===`). Rule `generic.sameAs` with parameter `value`.
+ *
+ * @param value The instance that the member must be.
+ * @param message The message reported when the rule fails.
+ */
+public fun <V> MemberValidationBuilder<V>.mustBeEqualByReferenceTo(value: V, message: String = "must be the same instance as $value.") {
+    rule("generic.sameAs", message, mapOf("value" to value)) { it === value }
+}
+
+/**
+ * Requires the value not to be the same instance as the specified value (`!==`). Rule `generic.notSameAs` with parameter `value`.
+ *
+ * @param value The instance that the member must not be.
+ * @param message The message reported when the rule fails.
+ */
+public fun <V> MemberValidationBuilder<V>.mustNotBeEqualByReferenceTo(value: V, message: String = "must not be the same instance as $value.") {
+    rule("generic.notSameAs", message, mapOf("value" to value)) { it !== value }
+}

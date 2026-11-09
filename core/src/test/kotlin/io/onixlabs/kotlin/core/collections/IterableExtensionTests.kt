@@ -104,4 +104,29 @@ class IterableExtensionTests {
         // Assert
         assertFalse(result)
     }
+
+    @Test
+    fun `Iterable_containsAll should return true only when every specified element is contained`() {
+
+        // Arrange
+        val values = listOf(123, 456)
+
+        // Assert
+        assertTrue(values.containsAll(123, 456))
+        assertTrue(values.containsAll(456))
+        assertFalse(values.containsAll(123, 456, 789))
+        assertTrue(values.containsAll(emptyList()))
+    }
+
+    @Test
+    fun `Iterable_containsAny should return true when any specified element is contained`() {
+
+        // Arrange
+        val values = listOf(123, 456)
+
+        // Assert
+        assertTrue(values.containsAny(789, 456))
+        assertFalse(values.containsAny(789))
+        assertFalse(values.containsAny(emptyList()))
+    }
 }

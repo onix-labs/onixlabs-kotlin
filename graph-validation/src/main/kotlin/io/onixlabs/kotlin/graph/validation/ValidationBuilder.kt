@@ -19,6 +19,7 @@ import io.onixlabs.kotlin.core.specifications.Specification
 import io.onixlabs.kotlin.graph.GraphDslMarker
 import io.onixlabs.kotlin.graph.GraphMember
 import kotlin.reflect.KClass
+import kotlin.reflect.KFunction1
 import kotlin.reflect.KProperty1
 
 /**
@@ -44,6 +45,17 @@ public class ValidationBuilder<T : Any> internal constructor(private val type: K
      */
     public operator fun <R> KProperty1<T, R>.invoke(block: MemberValidationBuilder<R>.() -> Unit) {
         property(this, block)
+    }
+
+    /**
+     * Declares rules for the result of calling the current member function, which takes no arguments.
+     *
+     * @param R The return type of the function.
+     * @param block The block that declares the rules.
+     */
+    @JvmName("invokeFunction")
+    public operator fun <R> KFunction1<T, R>.invoke(block: MemberValidationBuilder<R>.() -> Unit) {
+        function(this, block)
     }
 
     /**
@@ -99,6 +111,19 @@ public class ValidationBuilder<T : Any> internal constructor(private val type: K
      */
     public fun <R> property(property: KProperty1<T, R>, block: MemberValidationBuilder<R>.() -> Unit) {
         member(GraphMember.Property(property), block)
+    }
+
+    /**
+     * Declares rules for the result of calling the specified member function, which takes no arguments; for example,
+     * `function(Customer::fullName) { mustNotBeBlank() }`. The path of the result is `Customer.fullName()`.
+     *
+     * @param R The return type of the function.
+     * @param function The member function.
+     * @param block The block that declares the rules.
+     */
+    public fun <R> function(function: KFunction1<T, R>, block: MemberValidationBuilder<R>.() -> Unit) {
+        val body = MemberValidationBuilder<R>().apply(block).build()
+        nodes += { FunctionNode(function, body) }
     }
 
     /**

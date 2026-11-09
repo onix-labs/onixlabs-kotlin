@@ -65,7 +65,7 @@ public class TaskScheduler(
 
     private class Entry(
         val name: String,
-        val schedule: Schedule,
+        var schedule: Schedule,
         val overlap: Overlap,
         val misfire: Misfire,
         val action: () -> Unit,
@@ -134,6 +134,22 @@ public class TaskScheduler(
         val entry = entries.remove(name) ?: return false
         entry.removed = true
         entry.queued = null
+        changed.signalAll()
+        true
+    }
+
+    /**
+     * Replaces the schedule of a task. If the scheduler is running, the task's next occurrence is the first one of the
+     * new schedule after now. To add or remove rules, combine schedules: `schedule { include(a); include(b) }`.
+     *
+     * @param name The name of the task.
+     * @param schedule The new schedule of the task.
+     * @return Returns true if the task was rescheduled; otherwise, false if there was no task with the specified name.
+     */
+    public fun reschedule(name: String, schedule: Schedule): Boolean = lock.withLock {
+        val entry = entries[name] ?: return false
+        entry.schedule = schedule
+        if (state == State.STARTED) entry.nextRun = schedule.nextAfter(clock.instant())
         changed.signalAll()
         true
     }

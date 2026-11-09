@@ -197,6 +197,7 @@ public final class io/onixlabs/kotlin/scheduler/TaskScheduler : java/lang/AutoCl
 	public final fun close-LRDsOJo (J)Z
 	public final fun getTasks ()Ljava/util/List;
 	public final fun remove (Ljava/lang/String;)Z
+	public final fun reschedule (Ljava/lang/String;Lio/onixlabs/kotlin/scheduler/Schedule;)Z
 	public final fun start ()V
 }
 

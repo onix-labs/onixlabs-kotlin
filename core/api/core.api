@@ -83,6 +83,13 @@ public final class io/onixlabs/kotlin/core/Extensions_StringKt {
 }
 
 public final class io/onixlabs/kotlin/core/Extensions_TerminalKt {
+	public static final fun print (Ljava/lang/Object;Lio/onixlabs/kotlin/core/TerminalColor;Lio/onixlabs/kotlin/core/TerminalColor;)V
+	public static final fun print (Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun print$default (Ljava/lang/Object;Lio/onixlabs/kotlin/core/TerminalColor;Lio/onixlabs/kotlin/core/TerminalColor;ILjava/lang/Object;)V
+	public static final fun println (Ljava/lang/Object;Lio/onixlabs/kotlin/core/TerminalColor;Lio/onixlabs/kotlin/core/TerminalColor;)V
+	public static final fun println (Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun println$default (Ljava/lang/Object;Lio/onixlabs/kotlin/core/TerminalColor;Lio/onixlabs/kotlin/core/TerminalColor;ILjava/lang/Object;)V
+	public static final fun resetTerminalColors ()V
 	public static final fun setBackgroundColor (Lio/onixlabs/kotlin/core/TerminalColor;)V
 	public static final fun setForegroundColor (Lio/onixlabs/kotlin/core/TerminalColor;)V
 }
@@ -143,6 +150,13 @@ public final class io/onixlabs/kotlin/core/reflection/Extensions_KClassKt {
 	public static final fun createInstance (Lkotlin/reflect/KClass;Ljava/util/Map;)Ljava/lang/Object;
 	public static final fun createInstance (Lkotlin/reflect/KClass;[Ljava/lang/Object;)Ljava/lang/Object;
 	public static final fun getKotlinClass (Ljava/lang/Object;)Lkotlin/reflect/KClass;
+	public static final fun getMutableProperties (Lkotlin/reflect/KClass;)Ljava/util/List;
+	public static final fun getMutableProperty (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/reflect/KMutableProperty1;
+	public static final fun getMutablePropertyOrNull (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/reflect/KMutableProperty1;
+	public static final fun getPrimaryConstructor (Lkotlin/reflect/KClass;)Lkotlin/reflect/KFunction;
+	public static final fun getProperties (Lkotlin/reflect/KClass;)Ljava/util/List;
+	public static final fun getProperty (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/reflect/KProperty1;
+	public static final fun getPropertyOrNull (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/reflect/KProperty1;
 }
 
 public final class io/onixlabs/kotlin/core/reflection/Extensions_KTypeKt {

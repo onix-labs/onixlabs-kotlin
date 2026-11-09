@@ -16,6 +16,7 @@
 package io.onixlabs.kotlin.graph.validation
 
 import io.onixlabs.kotlin.graph.GraphMember
+import kotlin.reflect.KFunction1
 
 /**
  * Represents a validation rule: an identified, parameterised test applied to the value of a member.
@@ -55,6 +56,14 @@ internal sealed interface SubjectNode
  * @property body The rules applied to the member.
  */
 internal class MemberNode(val member: GraphMember, val body: MemberBody) : SubjectNode
+
+/**
+ * Represents the rules applied to the result of calling a member function of the subject that takes no arguments.
+ *
+ * @property function The member function.
+ * @property body The rules applied to the result.
+ */
+internal class FunctionNode(val function: KFunction1<*, *>, val body: MemberBody) : SubjectNode
 
 /**
  * Represents the rules applied to every member of the subject, except those excluded, as declared by `all { }`.

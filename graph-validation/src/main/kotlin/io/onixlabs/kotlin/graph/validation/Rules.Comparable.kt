@@ -94,3 +94,31 @@ public fun <C : Comparable<C>> MemberValidationBuilder<out C?>.mustBeLessThanOrE
 ) {
     rule("comparable.lessThanOrEqualTo", message, ComparableLessThanOrEqualSpecification(value), mapOf("value" to value))
 }
+
+/**
+ * Requires the value not to be within the specified inclusive range. Rule `comparable.notWithinRange` with parameters `minimum` and `maximum`.
+ *
+ * @param minimum The inclusive minimum.
+ * @param maximum The inclusive maximum.
+ * @param message The message reported when the rule fails.
+ */
+public fun <C : Comparable<C>> MemberValidationBuilder<out C?>.mustNotBeWithinRange(
+    minimum: C,
+    maximum: C,
+    message: String = "must not be within the range $minimum to $maximum.",
+) {
+    rule("comparable.notWithinRange", message, ComparableRangeSpecification(minimum, maximum).not(), mapOf("minimum" to minimum, "maximum" to maximum))
+}
+
+/**
+ * Requires the value not to be within the specified inclusive range. Rule `comparable.notWithinRange` with parameters `minimum` and `maximum`.
+ *
+ * @param range The inclusive range.
+ * @param message The message reported when the rule fails.
+ */
+public fun <C : Comparable<C>> MemberValidationBuilder<out C?>.mustNotBeWithinRange(
+    range: ClosedRange<C>,
+    message: String = "must not be within the range ${range.start} to ${range.endInclusive}.",
+) {
+    mustNotBeWithinRange(range.start, range.endInclusive, message)
+}

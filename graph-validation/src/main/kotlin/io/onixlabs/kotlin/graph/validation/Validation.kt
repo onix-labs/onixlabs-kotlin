@@ -20,9 +20,11 @@ import io.onixlabs.kotlin.graph.GraphMember
 import io.onixlabs.kotlin.graph.GraphMemberRead
 import io.onixlabs.kotlin.graph.GraphPath
 import io.onixlabs.kotlin.graph.GraphRegistry
+import io.onixlabs.kotlin.graph.graphs
 import java.util.Collections
 import java.util.IdentityHashMap
 import kotlin.reflect.KClass
+import kotlin.reflect.KFunction1
 import kotlin.reflect.KProperty1
 
 /**
@@ -40,6 +42,24 @@ import kotlin.reflect.KProperty1
 public fun GraphRegistry.validate(subject: Any, mode: ValidationMode = ValidationMode.ALL_FAILURES): ValidationResult {
     val root = GraphPath.root(mostSpecificGraphFor(subject::class)?.type ?: subject::class)
     return ValidationRun(this, mode).run(root) { validateObject(subject, root) }
+}
+
+/**
+ * Validates the specified subject against the specified rules, without declaring a graph or a registry. Only these
+ * rules apply: nested values are not validated, because there is no registry from which to obtain their graphs.
+ *
+ * @param T The type of the subject.
+ * @param subject The subject to validate.
+ * @param mode The mode in which to validate.
+ * @param block The block that declares the validation rules.
+ * @return Returns the result of validation.
+ */
+public inline fun <reified T : Any> validate(
+    subject: T,
+    mode: ValidationMode = ValidationMode.ALL_FAILURES,
+    noinline block: ValidationBuilder<T>.() -> Unit,
+): ValidationResult {
+    return graphs { graph<T> { validate(block) } }.validate(subject, mode)
 }
 
 /**
@@ -104,7 +124,7 @@ private class ValidationRun(private val registry: GraphRegistry, private val mod
             val graphs = registry.graphsFor(type)
             val definitions = graphs.flatMap { it.definitionsOf(ValidationPlugin) }
             for (definition in definitions) describeNodes(definition.nodes, definition.type, path, emptyList())
-            val subtypes = registry.graphs.filter { it.type != type && type.java.isAssignableFrom(it.type.java) }
+            val subtypes = if (type == Any::class) emptyList() else registry.graphs.filter { it.type != type && type.java.isAssignableFrom(it.type.java) }
             for (subtype in subtypes) {
                 val label = listOf("when ${subtype.type.simpleName}")
                 for (definition in subtype.definitionsOf(ValidationPlugin)) describeNodes(definition.nodes, definition.type, path, label)
@@ -123,6 +143,11 @@ private class ValidationRun(private val registry: GraphRegistry, private val mod
                 is MemberNode -> executeMember(subject, node.member, node.body, path, conditions)
                 is AllMembersNode -> for (property in registry.membersOf(type)) {
                     if (property.name !in node.excluded) executeMember(subject, GraphMember.Property(property), node.body, path, conditions)
+                }
+                is FunctionNode -> {
+                    @Suppress("UNCHECKED_CAST")
+                    val value = (node.function as KFunction1<Any, Any?>).call(subject)
+                    executeItems(node.body.items, value, path.function(node.function.name), conditions)
                 }
                 is SubjectConditionalNode -> if (mode == ValidationMode.TEST) {
                     executeNodes(node.then, subject, type, path, conditions + "when ${node.description}")
@@ -181,6 +206,7 @@ private class ValidationRun(private val registry: GraphRegistry, private val mod
         for (node in nodes) {
             when (node) {
                 is MemberNode -> describeItems(node.body.items, node.member.pathFrom(path), conditions)
+                is FunctionNode -> describeItems(node.body.items, path.function(node.function.name), conditions)
                 is AllMembersNode -> for (property in registry.membersOf(type)) {
                     if (property.name !in node.excluded) describeItems(node.body.items, path.property(property), conditions)
                 }
@@ -221,7 +247,8 @@ private class ValidationRun(private val registry: GraphRegistry, private val mod
     }
 
     private fun isDescribable(type: KClass<*>): Boolean {
-        return registry.hasGraphFor(type) || registry.graphs.any { type.java.isAssignableFrom(it.type.java) }
+        // Every type is a subtype of Any, so registered subtypes are only considered for members declared as a domain type.
+        return registry.hasGraphFor(type) || (type != Any::class && registry.graphs.any { type.java.isAssignableFrom(it.type.java) })
     }
 
     // ---------------------------------------------------------------- shared

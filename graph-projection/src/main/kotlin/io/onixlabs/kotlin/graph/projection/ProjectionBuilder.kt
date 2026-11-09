@@ -76,6 +76,16 @@ public class ProjectionBuilder<S : Any, R : Any> internal constructor(private va
     }
 
     /**
+     * Sets the current target parameter to the specified constant value, which is used as-is.
+     *
+     * @param P The type of the target parameter.
+     * @param value The value.
+     */
+    public infix fun <P> KProperty1<R, P>.from(value: P) {
+        map(name, ParameterMapping.Computed { value })
+    }
+
+    /**
      * Reads the value of the current target parameter from the specified source property, converting it by the
      * projection rules, or by a converter specified with [ProjectionParameter.using].
      *
@@ -117,6 +127,17 @@ public class ProjectionBuilder<S : Any, R : Any> internal constructor(private va
     }
 
     /**
+     * Sets the specified target parameter to the specified constant value, which is used as-is.
+     *
+     * @param P The type of the target parameter.
+     * @param target The target parameter.
+     * @param value The value.
+     */
+    public fun <P> parameter(target: KProperty1<R, P>, value: P) {
+        target from value
+    }
+
+    /**
      * Reads the value of the specified target parameter from the specified source property, converting it by the
      * projection rules, or by the specified converter.
      *
@@ -151,6 +172,28 @@ public class ProjectionBuilder<S : Any, R : Any> internal constructor(private va
     @Suppress("UNCHECKED_CAST")
     public fun parameter(name: String, compute: (S) -> Any?) {
         map(name, ParameterMapping.Computed { compute(it as S) })
+    }
+
+    /**
+     * Converts the value of the source property with the same name as the target constructor parameter or property
+     * with the specified name, using the specified converter.
+     *
+     * @param name The name of the target constructor parameter or property.
+     * @param converter The converter.
+     */
+    public fun parameter(name: String, converter: TypeConverter<*>) {
+        map(name, ParameterMapping.FromSource(null, converter))
+    }
+
+    /**
+     * Sets the target constructor parameter or property with the specified name to the specified constant value,
+     * which is used as-is.
+     *
+     * @param name The name of the target constructor parameter or property.
+     * @param value The value.
+     */
+    public fun parameter(name: String, value: Any?) {
+        map(name, ParameterMapping.Computed { value })
     }
 
     /**

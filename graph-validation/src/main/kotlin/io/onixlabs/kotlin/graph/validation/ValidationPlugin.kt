@@ -66,7 +66,7 @@ public class ValidationDefinition internal constructor(public val type: KClass<*
     private fun memberNodes(nodes: List<SubjectNode>): List<MemberNode> = nodes.flatMap { node ->
         when (node) {
             is MemberNode -> listOf(node)
-            is AllMembersNode -> emptyList()
+            is AllMembersNode, is FunctionNode -> emptyList()
             is SubjectConditionalNode -> memberNodes(node.then) + memberNodes(node.otherwise)
         }
     }

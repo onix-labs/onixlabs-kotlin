@@ -258,3 +258,22 @@ public fun MemberValidationBuilder<out String?>.mustMatchRegularExpression(patte
 public fun MemberValidationBuilder<out String?>.mustBeValidUUID(message: String = "must be a valid UUID.") {
     rule("string.uuid", message) { (it as String).isValidUUID() }
 }
+
+/**
+ * Requires the whole string to match the specified regular expression. Rule `string.matches` with parameter `pattern`.
+ *
+ * @param regex The regular expression that the string must match.
+ * @param message The message reported when the rule fails.
+ */
+public fun MemberValidationBuilder<out String?>.mustMatchRegex(regex: Regex, message: String = "must match the regular expression ${regex.pattern}.") {
+    rule("string.matches", message, mapOf("pattern" to regex.pattern)) { regex.matches(it as String) }
+}
+
+/**
+ * Requires the string to be a valid Luhn (Mod10) checksum; the same rule as [mustBeValidMod10Checksum]. Rule `string.mod10Checksum`.
+ *
+ * @param message The message reported when the rule fails.
+ */
+public fun MemberValidationBuilder<out String?>.mustBeValidLuhnChecksum(message: String = "must be a valid Luhn (Mod10) checksum.") {
+    mustBeValidMod10Checksum(message)
+}

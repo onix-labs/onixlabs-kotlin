@@ -135,6 +135,7 @@ public class ValidationResult internal constructor(public val mode: ValidationMo
         private fun GraphPath.append(segment: GraphPathSegment): GraphPath = when (segment) {
             is GraphPathSegment.Root -> error("A root segment cannot be appended to a path.")
             is GraphPathSegment.Property -> property(segment.name)
+            is GraphPathSegment.Function -> function(segment.name)
             is GraphPathSegment.Index -> index(segment.index)
             GraphPathSegment.AnyIndex -> anyIndex()
             is GraphPathSegment.Entry -> entry(segment.key)
@@ -203,6 +204,7 @@ public class ValidationResult internal constructor(public val mode: ValidationMo
                 val (container, key) = when (segment) {
                     is GraphPathSegment.Root -> error("A path contains exactly one root segment.")
                     is GraphPathSegment.Property -> node to segment.name
+                    is GraphPathSegment.Function -> node to "${segment.name}()"
                     is GraphPathSegment.Index -> node to segment.index.toString()
                     is GraphPathSegment.Entry -> node to segment.key.toString()
                     GraphPathSegment.AnyIndex, GraphPathSegment.AnyEntry -> node to "*"
