@@ -34,17 +34,30 @@ import kotlin.reflect.full.primaryConstructor
  *
  * @property graphs The graphs in the registry, in registration order.
  * @property memberAccess The policy that determines whether members may be read.
+ * @param excludedTypes The types whose declared properties are excluded from [membersOf].
+ * @param extensions The registry-level settings contributed by plugins, keyed by extension.
  */
 public class GraphRegistry internal constructor(
     public val graphs: List<Graph<*>>,
     public val memberAccess: GraphMemberAccess,
     excludedTypes: Set<KClass<*>>,
+    private val extensions: Map<GraphRegistryExtension<*>, List<Any>>,
 ) {
 
     private val graphsByType: Map<KClass<*>, Graph<*>> = graphs.associateBy { it.type }
     private val excludedTypes: Set<KClass<*>> = excludedTypes.flatMapTo(mutableSetOf()) { it.allSuperclasses + it }
     private val hierarchyCache: MutableMap<KClass<*>, List<Graph<*>>> = ConcurrentHashMap()
     private val memberCache: MutableMap<KClass<*>, List<KProperty1<Any, *>>> = ConcurrentHashMap()
+
+    /**
+     * Gets the registry-level settings contributed for the specified extension, in declaration order.
+     *
+     * @param E The type of the settings.
+     * @param extension The extension whose settings to obtain.
+     * @return Returns the settings contributed for the specified extension, or an empty list if there are none.
+     */
+    @Suppress("UNCHECKED_CAST")
+    public fun <E : Any> extensionsOf(extension: GraphRegistryExtension<E>): List<E> = extensions[extension].orEmpty() as List<E>
 
     /**
      * Gets the graph registered for exactly the specified type, ignoring its supertypes.
@@ -174,6 +187,7 @@ public class GraphRegistryBuilder internal constructor() {
     private val graphs: MutableList<Graph<*>> = mutableListOf()
     private val excludedTypes: MutableSet<KClass<*>> = linkedSetOf()
     private var memberAccess: GraphMemberAccess = GraphMemberAccess.Unrestricted
+    private val extensions: MutableMap<GraphRegistryExtension<*>, MutableList<Any>> = linkedMapOf()
 
     /**
      * Includes the specified graphs in the registry.
@@ -225,6 +239,19 @@ public class GraphRegistryBuilder internal constructor() {
     }
 
     /**
+     * Adds a registry-level setting for the specified extension. Graph plugins call this from their registry DSL
+     * functions, such as projection's `projectionTarget<T> { }`.
+     *
+     * @param E The type of the setting.
+     * @param extension The extension to which the setting belongs.
+     * @param setting The setting to add.
+     */
+    public fun <E : Any> extend(extension: GraphRegistryExtension<E>, setting: E) {
+        extensions.getOrPut(extension) { mutableListOf() }.add(setting)
+    }
+
+
+    /**
      * Builds an immutable [GraphRegistry] from the current builder, verifying the configuration of every graph.
      *
      * @return Returns an immutable [GraphRegistry] from the current builder.
@@ -237,7 +264,7 @@ public class GraphRegistryBuilder internal constructor() {
             throw GraphConfigurationException(duplicates.map { "More than one graph is registered for ${it.qualifiedName}." })
         }
 
-        val registry = GraphRegistry(distinct, memberAccess, excludedTypes.toSet())
+        val registry = GraphRegistry(distinct, memberAccess, excludedTypes.toSet(), extensions.mapValues { it.value.toList() })
         val problems = distinct.flatMap { graph ->
             graph.plugins.flatMap { plugin ->
                 graph.definitionsOf(plugin).filterIsInstance<GraphVerifiable>().flatMap { it.verify(graph, registry) }

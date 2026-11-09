@@ -36,3 +36,5 @@ data class Request(
 )
 
 data class Something(val x: Int, val y: UUID)
+
+data class RequestSummary(val text: String?, val number: Long?, val numberElements: List<String>?)

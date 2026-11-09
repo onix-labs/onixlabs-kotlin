@@ -248,6 +248,7 @@ public abstract class io/onixlabs/kotlin/graph/GraphPlugin {
 }
 
 public final class io/onixlabs/kotlin/graph/GraphRegistry {
+	public final fun extensionsOf (Lio/onixlabs/kotlin/graph/GraphRegistryExtension;)Ljava/util/List;
 	public final fun getGraphs ()Ljava/util/List;
 	public final fun getMemberAccess ()Lio/onixlabs/kotlin/graph/GraphMemberAccess;
 	public final fun graphFor (Lkotlin/reflect/KClass;)Lio/onixlabs/kotlin/graph/Graph;
@@ -261,9 +262,16 @@ public final class io/onixlabs/kotlin/graph/GraphRegistry {
 
 public final class io/onixlabs/kotlin/graph/GraphRegistryBuilder {
 	public final fun excludeMembersDeclaredBy ([Lkotlin/reflect/KClass;)V
+	public final fun extend (Lio/onixlabs/kotlin/graph/GraphRegistryExtension;Ljava/lang/Object;)V
 	public final fun include (Ljava/lang/Iterable;)V
 	public final fun include ([Lio/onixlabs/kotlin/graph/Graph;)V
 	public final fun memberAccess (Lio/onixlabs/kotlin/graph/GraphMemberAccess;)V
+}
+
+public abstract class io/onixlabs/kotlin/graph/GraphRegistryExtension {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getName ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class io/onixlabs/kotlin/graph/GraphRegistryKt {

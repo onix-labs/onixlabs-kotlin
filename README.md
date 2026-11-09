@@ -69,11 +69,11 @@ Fluent, declarative validation of object graphs. Validation rules are built on `
 
 Unobtrusive, convention-based object-to-object projection that respects the Kotlin type system and reduces the need for manual mapping code. In the best case, a projection requires no configuration at all.
 
--   Projection DSL (`project<R> { ... }`) for unconventional mappings
--   Convention-based projection by constructor parameter name
--   Configurable type conversion (`TypeConverterConfiguration`)
+-   Projection DSL (`project(R::class) { ... }`) for unconventional mappings
+-   Convention-based projection by constructor parameter and property name
+-   Configurable type conversion (`typeConverter<T>(...)`) and target factories (`projectionTarget<T> { ... }`)
 -   Nested and collection projection using registered graphs
--   Descriptive projection failures (`ProjectionException`)
+-   Descriptive projection failures, all reported at once with paths (`ProjectionException`)
 
 ## onixlabs-kotlin-scheduler
 

@@ -1,0 +1,80 @@
+public final class io/onixlabs/kotlin/graph/projection/ProjectionBuilder {
+	public final fun from (Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
+	public final fun from (Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;)Lio/onixlabs/kotlin/graph/projection/ProjectionParameter;
+	public final fun ignore (Lkotlin/reflect/KProperty1;)V
+	public final fun ignore ([Lkotlin/reflect/KProperty1;)V
+	public final fun parameter (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun parameter (Ljava/lang/String;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public final fun parameter (Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public final fun parameter (Lkotlin/reflect/KProperty1;Lkotlin/jvm/functions/Function1;)V
+	public final fun parameter (Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+	public static synthetic fun parameter$default (Lio/onixlabs/kotlin/graph/projection/ProjectionBuilder;Ljava/lang/String;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;ILjava/lang/Object;)V
+	public static synthetic fun parameter$default (Lio/onixlabs/kotlin/graph/projection/ProjectionBuilder;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;ILjava/lang/Object;)V
+	public fun toString ()Ljava/lang/String;
+	public final fun using (Lkotlin/reflect/KProperty1;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionDefinition {
+	public final fun getSourceType ()Lkotlin/reflect/KClass;
+	public final fun getTargetType ()Lkotlin/reflect/KClass;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionException : java/lang/RuntimeException {
+	public fun <init> (Ljava/util/List;)V
+	public final fun getFailures ()Ljava/util/List;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionFailure {
+	public fun <init> (Lio/onixlabs/kotlin/graph/GraphPath;Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Lio/onixlabs/kotlin/graph/GraphPath;Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun component2 ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Throwable;
+	public final fun copy (Lio/onixlabs/kotlin/graph/GraphPath;Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/String;Ljava/lang/Throwable;)Lio/onixlabs/kotlin/graph/projection/ProjectionFailure;
+	public static synthetic fun copy$default (Lio/onixlabs/kotlin/graph/projection/ProjectionFailure;Lio/onixlabs/kotlin/graph/GraphPath;Lio/onixlabs/kotlin/graph/GraphPath;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)Lio/onixlabs/kotlin/graph/projection/ProjectionFailure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCause ()Ljava/lang/Throwable;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getPath ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public final fun getSourcePath ()Lio/onixlabs/kotlin/graph/GraphPath;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionKt {
+	public static final fun project (Lio/onixlabs/kotlin/graph/GraphRegistry;Ljava/lang/Object;Lkotlin/reflect/KClass;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionParameter {
+	public final fun using (Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionPlugin : io/onixlabs/kotlin/graph/GraphPlugin {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/projection/ProjectionPlugin;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionPluginKt {
+	public static final fun project (Lio/onixlabs/kotlin/graph/GraphBuilder;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun project$default (Lio/onixlabs/kotlin/graph/GraphBuilder;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static final fun projectionTarget (Lio/onixlabs/kotlin/graph/GraphRegistryBuilder;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
+	public static final fun typeConverter (Lio/onixlabs/kotlin/graph/GraphRegistryBuilder;Lkotlin/reflect/KClass;Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;)V
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionTargetFactory {
+	public final fun getType ()Lkotlin/reflect/KClass;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionTargets : io/onixlabs/kotlin/graph/GraphRegistryExtension {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/projection/ProjectionTargets;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionTypeConverter {
+	public final fun getConverter ()Lio/onixlabs/kotlin/core/typeconverters/TypeConverter;
+	public final fun getType ()Lkotlin/reflect/KClass;
+}
+
+public final class io/onixlabs/kotlin/graph/projection/ProjectionTypeConverters : io/onixlabs/kotlin/graph/GraphRegistryExtension {
+	public static final field INSTANCE Lio/onixlabs/kotlin/graph/projection/ProjectionTypeConverters;
+}
+

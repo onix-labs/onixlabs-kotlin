@@ -35,6 +35,26 @@ public abstract class GraphPlugin<D : Any>(public val name: String) {
 }
 
 /**
+ * Represents a registry-level extension point through which a graph plugin contributes settings of type [E] to a
+ * [GraphRegistry]; for example, the target factories and type converters used by projection.
+ *
+ * Extensions are compared by identity, so each extension should be declared as a singleton object. A plugin's
+ * registry DSL function is an extension function on [GraphRegistryBuilder] which calls [GraphRegistryBuilder.extend].
+ *
+ * @param E The type of setting contributed through the extension.
+ * @property name The name of the extension, used for diagnostics.
+ */
+public abstract class GraphRegistryExtension<E : Any>(public val name: String) {
+
+    /**
+     * Returns a string that represents the current object.
+     *
+     * @return Returns a string that represents the current object.
+     */
+    override fun toString(): String = name
+}
+
+/**
  * Represents a plugin definition that can verify its configuration when graphs are composed into a [GraphRegistry].
  * For example, a definition that requires the graph of a nested type can report that the graph is not registered.
  */

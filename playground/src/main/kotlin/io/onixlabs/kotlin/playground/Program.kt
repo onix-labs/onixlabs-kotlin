@@ -15,6 +15,7 @@
  */
 package io.onixlabs.kotlin.playground
 
+import io.onixlabs.kotlin.graph.projection.project
 import io.onixlabs.kotlin.graph.validation.describe
 import io.onixlabs.kotlin.graph.validation.validate
 
@@ -33,4 +34,7 @@ fun main() {
     println()
     println("== Describe Request")
     println(Model.describe<Request>())
+    println()
+    println("== Projection (no configuration)")
+    println(Model.project<RequestSummary>(request))
 }
