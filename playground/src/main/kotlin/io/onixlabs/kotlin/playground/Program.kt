@@ -15,7 +15,22 @@
  */
 package io.onixlabs.kotlin.playground
 
+import io.onixlabs.kotlin.graph.validation.describe
+import io.onixlabs.kotlin.graph.validation.validate
+
 fun main() {
-    val result = RequestValidator.validate()
-    println(result.toString())
+    val request = Request(text = "Dave", number = 3, numberElements = listOf(200, 5))
+    val result = Model.validate(request)
+
+    println("== Failures")
+    println(result)
+    println()
+    println("== Flat JSON")
+    println(result.toFlatJson())
+    println()
+    println("== Tree JSON")
+    println(result.toTreeJson())
+    println()
+    println("== Describe Request")
+    println(Model.describe<Request>())
 }

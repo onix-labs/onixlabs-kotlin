@@ -15,4 +15,20 @@
  */
 package io.onixlabs.kotlin.graph.validation
 
-internal class StopOnErrorException(val propertyValidationBuilder: PropertyValidationBuilder<*>) : RuntimeException()
+/**
+ * Requires the value to be true. Rule `boolean.true`.
+ *
+ * @param message The message reported when the rule fails.
+ */
+public fun MemberValidationBuilder<out Boolean?>.mustBeTrue(message: String = "must be true.") {
+    rule("boolean.true", message) { it == true }
+}
+
+/**
+ * Requires the value to be false. Rule `boolean.false`.
+ *
+ * @param message The message reported when the rule fails.
+ */
+public fun MemberValidationBuilder<out Boolean?>.mustBeFalse(message: String = "must be false.") {
+    rule("boolean.false", message) { it == false }
+}
