@@ -1,0 +1,126 @@
+/*
+ * Copyright 2020-2026 ONIXLabs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.onixlabs.kotlin.core.time
+
+import java.time.DayOfWeek
+import java.time.temporal.TemporalAccessor
+import java.util.*
+
+/**
+ * Represents an ordinal occurrence of a day in the month.
+ *
+ * @param occurrence The occurrence of the day in the month.
+ * @param dayOfWeek The day of the week.
+ */
+public class DayOfMonth(public val occurrence: DayOfMonthOccurrence, public val dayOfWeek: DayOfWeek) {
+
+    public companion object {
+
+        /**
+         * Creates a [DayOfMonth] instance from the specified [TemporalAccessor] instance.
+         * The occurrence is always ordinal, never [DayOfMonthOccurrence.LAST]; use [matches] to test a date against a [DayOfMonth].
+         *
+         * @param temporal The [TemporalAccessor] from which to obtain a [DayOfMonth] instance.
+         * @return Returns a [DayOfMonth] instance from the specified [TemporalAccessor] instance.
+         */
+        public fun from(temporal: TemporalAccessor): DayOfMonth {
+            return DayOfMonth(DayOfMonthOccurrence.from(temporal), DayOfWeek.from(temporal))
+        }
+
+        /**
+         * Creates a [DayOfMonth] instance for the first occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the first occurrence of the specified day.
+         */
+        public fun first(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.FIRST, dayOfWeek)
+
+        /**
+         * Creates a [DayOfMonth] instance for the second occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the second occurrence of the specified day.
+         */
+        public fun second(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.SECOND, dayOfWeek)
+
+        /**
+         * Creates a [DayOfMonth] instance for the third occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the third occurrence of the specified day.
+         */
+        public fun third(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.THIRD, dayOfWeek)
+
+        /**
+         * Creates a [DayOfMonth] instance for the fourth occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the fourth occurrence of the specified day.
+         */
+        public fun fourth(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.FOURTH, dayOfWeek)
+
+        /**
+         * Creates a [DayOfMonth] instance for the fifth occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the fifth occurrence of the specified day.
+         */
+        public fun fifth(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.FIFTH, dayOfWeek)
+
+        /**
+         * Creates a [DayOfMonth] instance for the last occurrence of the specified day.
+         *
+         * @return Returns a [DayOfMonth] instance for the last occurrence of the specified day.
+         */
+        public fun last(dayOfWeek: DayOfWeek): DayOfMonth = DayOfMonth(DayOfMonthOccurrence.LAST, dayOfWeek)
+    }
+
+    /**
+     * Determines whether the specified [TemporalAccessor] falls on the current [DayOfMonth].
+     *
+     * @param temporal The [TemporalAccessor] to test.
+     * @return Returns true if the specified [TemporalAccessor] falls on the current [DayOfMonth]; otherwise, false.
+     */
+    public fun matches(temporal: TemporalAccessor): Boolean {
+        return DayOfWeek.from(temporal) == dayOfWeek && occurrence.matches(temporal)
+    }
+
+    /**
+     * Determines whether the specified object is equal to the current object.
+     *
+     * @param other The object to compare with the current object.
+     * @return Returns true if the specified object is equal to the current object; otherwise, false.
+     */
+    override fun equals(other: Any?): Boolean {
+        return other != null
+                && other is DayOfMonth
+                && other.occurrence == occurrence
+                && other.dayOfWeek == dayOfWeek
+    }
+
+    /**
+     * Serves as the default hash function.
+     *
+     * @return Returns a hash code for the current object.
+     */
+    override fun hashCode(): Int {
+        return Objects.hash(occurrence, dayOfWeek)
+    }
+
+    /**
+     * Returns a string that represents the current object.
+     *
+     * @return Returns a string that represents the current object.
+     */
+    override fun toString(): String {
+        return "$occurrence $dayOfWeek"
+    }
+}
