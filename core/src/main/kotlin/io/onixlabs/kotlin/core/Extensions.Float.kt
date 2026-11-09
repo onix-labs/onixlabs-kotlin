@@ -55,5 +55,5 @@ public fun Float.toBigInteger(): BigInteger {
  * @return Returns a [BigDecimal] representation of the current [Float] value.
  */
 public fun Float.toBigDecimal(): BigDecimal {
-    return BigDecimal.valueOf(toLong())
+    return BigDecimal.valueOf(toDouble())
 }

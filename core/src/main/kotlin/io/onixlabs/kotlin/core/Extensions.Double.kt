@@ -55,5 +55,5 @@ public fun Double.toBigInteger(): BigInteger {
  * @return Returns a [BigDecimal] representation of the current [Double] value.
  */
 public fun Double.toBigDecimal(): BigDecimal {
-    return BigDecimal.valueOf(toLong())
+    return BigDecimal.valueOf(this)
 }

@@ -145,6 +145,11 @@ public final class io/onixlabs/kotlin/core/reflection/Extensions_KClassKt {
 	public static final fun getKotlinClass (Ljava/lang/Object;)Lkotlin/reflect/KClass;
 }
 
+public final class io/onixlabs/kotlin/core/reflection/Extensions_KTypeKt {
+	public static final fun getFormattedQualifiedName (Lkotlin/reflect/KType;)Ljava/lang/String;
+	public static final fun getFormattedSimpleName (Lkotlin/reflect/KType;)Ljava/lang/String;
+}
+
 public final class io/onixlabs/kotlin/core/reflection/Extensions_TypeKt {
 	public static final fun toClass (Ljava/lang/reflect/Type;)Ljava/lang/Class;
 	public static final fun toTypedClass (Ljava/lang/reflect/Type;)Ljava/lang/Class;
@@ -412,5 +417,137 @@ public final class io/onixlabs/kotlin/core/specifications/string/StringValidUUID
 	public fun <init> ()V
 	public synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 	public fun isSatisfiedBy (Ljava/lang/String;)Z
+}
+
+public final class io/onixlabs/kotlin/core/time/DayOfMonth {
+	public static final field Companion Lio/onixlabs/kotlin/core/time/DayOfMonth$Companion;
+	public fun <init> (Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;Ljava/time/DayOfWeek;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDayOfWeek ()Ljava/time/DayOfWeek;
+	public final fun getOccurrence ()Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public fun hashCode ()I
+	public final fun matches (Ljava/time/temporal/TemporalAccessor;)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/onixlabs/kotlin/core/time/DayOfMonth$Companion {
+	public final fun fifth (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun first (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun fourth (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun from (Ljava/time/temporal/TemporalAccessor;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun last (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun second (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+	public final fun third (Ljava/time/DayOfWeek;)Lio/onixlabs/kotlin/core/time/DayOfMonth;
+}
+
+public final class io/onixlabs/kotlin/core/time/DayOfMonthOccurrence : java/lang/Enum {
+	public static final field Companion Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence$Companion;
+	public static final field FIFTH Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static final field FIRST Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static final field FOURTH Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static final field LAST Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static final field SECOND Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static final field THIRD Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun matches (Ljava/time/temporal/TemporalAccessor;)Z
+	public static fun valueOf (Ljava/lang/String;)Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public static fun values ()[Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+}
+
+public final class io/onixlabs/kotlin/core/time/DayOfMonthOccurrence$Companion {
+	public final fun from (Ljava/time/temporal/TemporalAccessor;)Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+	public final fun isLastOccurrence (Ljava/time/temporal/TemporalAccessor;)Z
+	public final fun occurrencesOf (Ljava/time/temporal/TemporalAccessor;)Ljava/util/Set;
+	public final fun valueOf (I)Lio/onixlabs/kotlin/core/time/DayOfMonthOccurrence;
+}
+
+public final class io/onixlabs/kotlin/core/time/Extensions_DurationKt {
+	public static final fun plus (Ljava/time/Duration;JJJJJJ)Ljava/time/Duration;
+	public static synthetic fun plus$default (Ljava/time/Duration;JJJJJJILjava/lang/Object;)Ljava/time/Duration;
+	public static final fun toLong (Ljava/time/Duration;Ljava/util/concurrent/TimeUnit;)J
+	public static final fun toMicros (Ljava/time/Duration;)J
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/BigDecimalTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun convert (Ljava/lang/Object;)Ljava/math/BigDecimal;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/BigIntegerTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun convert (Ljava/lang/Object;)Ljava/math/BigInteger;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/BooleanTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Boolean;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/ByteTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Byte;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/CharTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Character;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/DoubleTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Double;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/FloatTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Float;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/IllegalTypeConversionException : java/lang/Exception {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;)V
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/IntTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Integer;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/LongTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Long;
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/ShortTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun convert (Ljava/lang/Object;)Ljava/lang/Short;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/StringTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun convert (Ljava/lang/Object;)Ljava/lang/String;
+}
+
+public abstract class io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public abstract fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/onixlabs/kotlin/core/typeconverters/UUIDTypeConverter : io/onixlabs/kotlin/core/typeconverters/TypeConverter {
+	public fun <init> ()V
+	public synthetic fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun convert (Ljava/lang/Object;)Ljava/util/UUID;
 }
 
