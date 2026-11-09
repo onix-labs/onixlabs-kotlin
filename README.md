@@ -79,10 +79,10 @@ Unobtrusive, convention-based object-to-object projection that respects the Kotl
 
 [See it on GitHub Packages](https://github.com/orgs/onix-labs/packages?repo_name=onixlabs-kotlin)
 
-Calendar-aware scheduling of recurring tasks, supporting rules such as "every second Tuesday at 09:00" or "the last Friday of March, June, September, and December".
+Calendar-aware scheduling of recurring tasks, supporting rules such as "the second Tuesday of every month at 09:00", "every other Tuesday at 09:00", or "the last Friday of March, June, September, and December".
 
 -   Interval, daily, weekly, monthly, and yearly schedules
 -   Ordinal day-of-month rules (`first`, `second`, ..., `last`)
 -   Explicit time zones for every schedule
 -   Next-occurrence calculation for any schedule
--   Task scheduler with per-task failure isolation
+-   Task scheduler with per-task failure isolation, overlap and misfire policies, and outcome listeners
