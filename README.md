@@ -86,3 +86,12 @@ Calendar-aware scheduling of recurring tasks, supporting rules such as "the seco
 -   Explicit time zones for every schedule
 -   Next-occurrence calculation for any schedule
 -   Task scheduler with per-task failure isolation, overlap and misfire policies, and outcome listeners
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to build the project and propose changes, and please
+follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a security vulnerability, follow the [security policy](SECURITY.md).
+
+## Licence
+
+ONIXLabs Kotlin is licensed under the [Apache License, Version 2.0](LICENSE).

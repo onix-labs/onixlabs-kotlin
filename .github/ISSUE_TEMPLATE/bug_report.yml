@@ -1,0 +1,46 @@
+name: Bug report
+description: Report something that does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a bug. For security vulnerabilities, please follow the security policy instead.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - core
+        - graph
+        - graph-validation
+        - graph-projection
+        - scheduler
+        - build or CI
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: e.g. 1.0.0, or a commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: A minimal code sample is the most helpful.
+      render: kotlin
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: e.g. Kotlin 2.4.21, JDK 21 (Zulu), macOS
