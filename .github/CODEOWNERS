@@ -1,0 +1,10 @@
+# Code owners are requested for review on pull requests that change the files they own.
+# The last matching pattern takes precedence.
+
+*                   @MrMatthewLayton
+
+# Build, CI, and repository rules, including this file.
+/.github/           @MrMatthewLayton
+/build-logic/       @MrMatthewLayton
+/gradle/            @MrMatthewLayton
+*.gradle.kts        @MrMatthewLayton
